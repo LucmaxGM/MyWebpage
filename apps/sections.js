@@ -5,6 +5,7 @@ import {openStatisticApp} from "./statsApp.js";
 import {discardById, userInfoDisplay} from "../func/helpers.js";
 import {openSongPlayer} from "./musicPlayerApp.js";
 import {openAboutMe} from "./aboutMe.js";
+import {glowingNeon} from "../func/visuals.js"
 class App {
   constructor(name, enter, imgSrc, finished) {
     this.name = name;
@@ -16,9 +17,9 @@ class App {
 const sections = [
   new App ("Notas", openNotesApp, "note.jpg", true),
   new App ("Calculadora", openCalcApp, "calc.jpg", false),
-  new App ("Statistics", openStatisticApp, "calc2.jpg", true),
+  new App ("Estadistica", openStatisticApp, "calc2.jpg", true),
   new App ("Sobre Mi", openAboutMe, "hola.jpg", "i"),
-  new App ("Jueguito", openGame, "holaxd.jpg", false),
+  new App ("Videojuego", openGame, "holaxd.jpg", false),
   new App("Reproductor de música", openSongPlayer, "disco.jpg", true)
   ];
   
@@ -52,12 +53,18 @@ export function createSection (name, enter, imgSrc, finished) {
   state.classList.add("stateOfSection");
   stateText.classList.add("completedState");
   if (finished === true) {
-    button.addEventListener("click", enter);
+    container.addEventListener("click", enter);
+    button.addEventListener("click", ()=>{
+      console.log("Congrats on clicking the button!")
+    });
     container.classList.add("completed");
     stateText.innerText = "Completed";
     stateText.style.color="lime";
   } else if (finished === "i") {
-    button.addEventListener("click", enter);
+    container.addEventListener("click", enter);
+    button.addEventListener("click",  ()=>{
+      console.log("Congrats on clicking the button!")
+    });
     container.classList.add("sectionInfo");
     stateText.innerText = "More info";
     stateText.style.color= "white";

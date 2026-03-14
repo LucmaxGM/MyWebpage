@@ -47,11 +47,11 @@ export function openStatisticApp () {
   promedio.innerText="Promedio/media: ";
   promedio.id="statsPromedio";
   sheet.appendChild(promedio);
-  ////
-  const decil = document.createElement("p");
-  decil.id="statsDecil";
-  decil.innerText="Custom decil: ";
-  sheet.appendChild(decil);
+  //// No
+  //const decil = document.createElement("p");
+  //decil.id="statsDecil";
+  //decil.innerText="Custom decil: ";
+  //sheet.appendChild(decil);
   ////
   const percentil = document.createElement("p");
   percentil.id="statsPercentil";
@@ -62,9 +62,17 @@ export function openStatisticApp () {
   frecuencyGraph.id="frecuencyGraph";
   statsApp.appendChild(frecuencyGraph);
   /////
+  const frecuencyGraphLabel = document.createElement("h3");
+  frecuencyGraphLabel.innerText="Gráfico de frecuencias";
+  frecuencyGraphLabel.classList.add("label");
+  frecuencyGraph.appendChild(frecuencyGraphLabel);
   const graphContainer = document.createElement("div");
   graphContainer.id="graphContainer";
   statsApp.appendChild(graphContainer);
+  const graphContainerLabel = document.createElement("h3");
+  graphContainerLabel.innerText="Gráfico de elementos";
+  graphContainerLabel.classList.add("label");
+  graphContainer.appendChild(graphContainerLabel);
 }
 
 const divsheet = document.getElementById("sheet");
@@ -113,7 +121,7 @@ function calcularStats (value) {
   document.getElementById("statsPromedio").innerText=`Promedio: ${calcularPromedio(array)}`;
   document.getElementById("statsPercentil").innerText=`Percentil N°${document.getElementById("percInput").value}: ${calcularPercentil(array, percInput)}`;
   document.getElementById("statsMediana").innerText=`Mediana: ${calcularPercentil(array, 50)}`;
-  document. getElementById("statsDecil").innerText=`Decil N°${Math.floor(percInput/10)}: ${calcularPercentil(array, Math.floor(percInput/10))}`;
+  //document. getElementById("statsDecil").innerText=`Decil N°${Math.floor(percInput/10)}: ${calcularPercentil(array, Math.floor(percInput/10))}`;
   graficadoraDeFrecuencyArray(array);
   graficadorDeArray(array);
 }

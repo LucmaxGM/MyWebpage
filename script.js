@@ -1,7 +1,7 @@
 
-import {userInfoHide, closePopUp, hideAndRemoveByClass, displayName, userInfoDisplay, hiding, discardById} from "./func/helpers.js";
+import {userInfoHide, closePopUp, hideAndRemoveByClass, displayName, userInfoDisplay, hiding, discardById, highlightElement} from "./func/helpers.js";
 
-
+import {glowingNeon} from "./func/visuals.js";
 
 ///////////////////
 import {showSections, createSection} from "./apps/sections.js";
@@ -69,7 +69,9 @@ document.querySelectorAll(".closeButton").forEach(closeBut => closeBut.addEventL
 
 
 
-
+document.getElementById("testing").addEventListener("click", function () {
+  highlightElement(this);
+})
 
 
 
@@ -94,9 +96,7 @@ setTimeout(()=> {
 if (!signInState) {
 userInfoDisplay(`Tip: Presione el botón "Inicio rápido" o ingrese
 Usuario: Lucas, Contraseña: 2026`);
-document.getElementById("signInButtonClick").style.transform="scale(1.1)";
-colorInterval = setInterval(() => {
-  colorsIndex = (colorsIndex +1) % colorsforbutton.length;
-  document.getElementById("signInButtonClick").style.background=colorsforbutton[colorsIndex]
-}, 1000);
+highlightElement(document.getElementById("signInButtonClick"))
   }}, 2500);
+
+glowingNeon(document.getElementById("signInForm"), 30, "green", "darkgreen", "black");
