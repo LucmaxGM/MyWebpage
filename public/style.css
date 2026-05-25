@@ -1,7 +1,11 @@
 
 body {
- background-color: #0F0F0F;
+ background-color: #1F1F1F;
  color: white;
+}
+#main {
+  height: 100%;
+  width: 100%;
 }
 #signInForm {
   position: absolute;
@@ -86,7 +90,7 @@ button {
 .returnHomeBtn:hover {
   background-color: darkred;
 }
-#singInForm.hide {
+#signInForm.hide {
   opacity: 0;
   transform: translateY(-30px);
   pointer-events: none;

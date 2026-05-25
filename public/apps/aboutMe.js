@@ -16,7 +16,7 @@ export function openAboutMe () {
   aboutMeApp.appendChild(title);
   ///////
   const information=document.createElement("h3");
-  information.innerText="Soy Lucas B. Les doy la bienvenida a mi página web. Uno de mis proyectos de desarrollo en el que estoy trabajando para mostrar mis habilidades como desarrollador: (Por favor presione la que quiera para expandir)"
+  information.innerText="Soy Lucas B. Les doy la bienvenida a mi página web. Uno de mis proyectos de desarrollo en el que estoy trabajando para mostrar mis habilidades como desarrollador: (Por motivos de informacion y privacidad no mostraré demasiado por este medio)"
   aboutMeApp.appendChild(information);
   iterativeCreation("#aboutMeApp", "h3", 300, qualities)
   

@@ -1,0 +1,93 @@
+#home-page {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  background-color: black;
+  grid-gap: 5px;
+  grid-template-areas: 
+  "header header header header nav"
+  "main main main main main"
+  "main main main main main"
+  "main main main main main"
+  "footer footer footer footer footer"
+  ;
+}
+#home-header {
+  text-align: center;
+  overflow: hidden;
+  background-color: red;
+  grid-area: header;
+}
+#home-main {
+  overflow: hidden;
+  background-color: violet;
+  grid-area: main;
+  position: relative;
+}
+#home-nav {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: green;
+  grid-area: nav;
+  z-index:2;
+}
+.nav-normal {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#home-nav img {
+  width: 20%;
+  aspect-ratio:1/1;
+  object-fit: cover;
+}
+#nav-extra.expand{
+  
+  opacity: 1;
+}
+#nav-extra {
+  background-color: green;
+  position: absolute;
+  display:flex;
+  opacity:0;
+  justify-content: space-around;
+  top: 100%;
+  transition: all 0.5s ease;
+}
+
+#home-footer {
+  overflow: hidden;
+  background-color: yellow;
+  grid-area: footer;
+}
+#tracker {
+  display:flex;
+  transition: all 0.9s ease;
+}
+.slide {
+  min-width:100%;
+}
+.arrow-btn {
+  top: 39%;
+  position: absolute;
+  height: 15%;
+  width: 12%;
+  background: transparent;
+  border: 0;
+}
+.arrow-btn img {
+  width:100%;
+  height:100%;
+  object-fit: contain;
+}
+#nextSlideBtn {
+  right: 10px;
+}
+#prevSlideBtn {
+  left: 10px;
+  rotate: 180deg;
+}

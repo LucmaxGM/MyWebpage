@@ -14,6 +14,7 @@ export function openNotesApp () {
   /////
   const noteInput = document.createElement("textarea");
   noteInput.id = "noteInput";
+  noteInput.placeholder="Añada su nota aquí";
   noteApp.appendChild(noteInput);
   const addNoteButton = document.createElement("button");
   addNoteButton.id="addNoteButton";

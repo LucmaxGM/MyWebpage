@@ -32,10 +32,12 @@ export function displayName(userGreetings, userInp=document.getElementById("user
 export function hiding (element) {
   element.classList.add("hide");
   element.addEventListener("transitionend", () => element.remove())
-}
+} 
 export function discardById(id) {
+  if (!(document.getElementById(id)==null)){
   document.getElementById(id).addEventListener("transitionend", () => {document.getElementById(id).remove();});
   document.getElementById(id).classList.add("hide");
+  } else { return; }
 }
 //////Highlight
 
@@ -78,4 +80,15 @@ element.style.boxShadow = `0 0 10px ${highlightColors[highlightColorsIndex]}, 0 
 element.addEventListener("click", clickHandler);
 } 
 
+}
+export function loadCssFile(href){
+  if(document.querySelector(`link[href="${href}"]`)) {
+    console.log("CSS file already loaded!");
+    return;
+    
+  }
+  const link = document.createElement("link");
+  link.rel="stylesheet";
+  link.href=href;
+  document.head.appendChild(link);
 }

@@ -2,6 +2,7 @@ import {openNotesApp} from "./notesApp.js";
 import {openCalcApp} from "./calcApp.js";
 import {openGame} from "./videogameApp.js";
 import {openStatisticApp} from "./statsApp.js";
+import {openAuthDemo} from "./authdemo.js";
 import {discardById, userInfoDisplay} from "../func/helpers.js";
 import {openSongPlayer} from "./musicPlayerApp.js";
 import {openAboutMe} from "./aboutMe.js";
@@ -16,11 +17,13 @@ class App {
 }
 const sections = [
   new App ("Notas", openNotesApp, "note.jpg", true),
-  new App ("Calculadora", openCalcApp, "calc.jpg", false),
   new App ("Estadistica", openStatisticApp, "calc2.jpg", true),
+  new App("Reproductor de música", openSongPlayer, "disco.jpg", true),
+  new App ("Authentication Demo", openAuthDemo, "xd.jpg", true),
   new App ("Sobre Mi", openAboutMe, "hola.jpg", "i"),
-  new App ("Videojuego", openGame, "holaxd.jpg", false),
-  new App("Reproductor de música", openSongPlayer, "disco.jpg", true)
+  new App ("Calculadora", openCalcApp, "calc.jpg", false),
+  new App ("Videojuego", openGame, "holaxd.jpg", false)
+  
   ];
   
 export function createSection (name, enter, imgSrc, finished) {
