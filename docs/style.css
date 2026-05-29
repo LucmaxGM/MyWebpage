@@ -2,6 +2,7 @@
 body {
  background-color: #1F1F1F;
  color: white;
+
 }
 #main {
   height: 100%;
@@ -10,19 +11,25 @@ body {
 #signInForm {
   position: absolute;
   width: 80%;
-  height: auto;
-  inset: 20% auto auto auto;
+  height: 35vw;
+  inset: 30vw auto auto 0;
   justify-content: center;
   text-align: center;
   background-color: #2F2F2F;
-  border-radius: 20px;
+  border-radius: 3vw;
   box-shadow: 0 0 45px 10px green;
 display: inline-block;
-  padding: 10px 20px;
+  padding: 2vw 5vw;
   color: green;
   opacity: 1;
   transform: translateY(0);
  transition: all 1.5s ease;
+ font-size: 5vw;
+}
+#submit {
+  width: 20vw;
+  height: 6vw;
+  font-size: 5vw;
 }
 #signInForm.error{
   color: red;
@@ -39,7 +46,7 @@ button {
   color: white;
   background: red;
   position: absolute;
-  inset: 10px 10px auto auto;
+  inset: 3vw 3vw auto auto;
   display: inline-block;
   width: auto;
   height: auto;
@@ -50,41 +57,46 @@ button {
   transition: all 0.5s ease;
 }
 #userInfo {
+  font-size:min(4vw);
   z-index: 999;
   justify-content: center;
   background-color: #2F2F2F;
   color: green;
-  padding: 15px 15px;
+  padding: 3vw 3vw;
   position: absolute;
   text-align: center;
-  inset: 200px 15px;
+  inset: 20vw 4vw;
   border-radius: 15px;
   opacity: 1;
   transform: translateY(0);
  transition: opacity 0.7s ease, transform 0.7s ease;
- width: 375px;
- height: 150px;
+ width: 90vw;
+ height: 40vw;
  opacity: 0,5;
+}
+#userInfo button {
+  width: 5vw;
+  height:5vw;
+  font-size:4vw;
 }
 .returnHomeBtn {
   background-color: red;
-  border-radius: 5px;
+  border-radius: 1vw;
   position: absolute;
-  inset: 5px 5px auto auto;
-  width: 40px;
-  height: 40px;
+  inset: 2vw 2vw auto auto;
+  width: 8vw;
+  height: 8vw;
   z-index: 998;
   background: url("images/homebtn.png") center/cover no-repeat;
 }
 .minimizarBtn {
-  display: flex;
-  justify-content: center;
+
   background-color: red;
   border-radius: 5px;
   position: absolute;
   inset: 5px 45px auto auto;
-  width: 40px;
-  height: 40px;
+  width: 10vw;
+  height: 10vw;
   z-index: 998;
 }
 .returnHomeBtn:hover {
@@ -95,6 +107,12 @@ button {
   transform: translateY(-30px);
   pointer-events: none;
 }
+#signInForm input {
+  width: 25vw;
+  height: 4vw;
+  font-size:4vw;
+}
+
 #userInfo.hide {
   opacity: 0;
   transform: translateY(30px);
@@ -117,13 +135,13 @@ button {
   display: none;
 }
 .sectionContainer {
-  margin: 20px;
-  z-index: 0;
+  margin: 4vw;
   position: relative;
-  overflow: hidden;
-  width: 350px;
-  height: 90px;
-  border-radius: 15px;
+  z-index: 0;
+  overflow:hidden;
+  width: 90vw;
+  height: 20vw;
+  border-radius: 10%;
   background-color: #00ede2;
   color: black;
   transition: transform 0.5s ease;
@@ -151,26 +169,26 @@ button {
 }
 .sectionButton {
   position: absolute;
-  inset: auto 10px 10px auto;
+  inset: auto 5vw 5vw auto;
   background-color: black;
   color: lime;
-  font-size: 1,2rem;
+  font-size: 3vw;
   z-index: 1;
 }
 .sectionTitle {
   position: absolute;
-  inset: 0px auto auto 20px;
+  inset: 1vw auto auto 10vw;
   z-index: 1;
-  font-size: 1,5rem;
+  font-size: 5vw;
 }
 .stateOfSection {
   justify-content: center;
-  height: 20px;
-  width: 200px;
+  height: 5vw;
+  width: 60vw;
   background: #0F0F0F;
-  font-size: 15;
+  font-size: 4vw;
   position: absolute;
-  inset: 5px -30px auto auto;
+  inset: 1vw -6vw auto auto;
   z-index: 3;
   font-family: helvetica;
   transform: rotate(18deg);
@@ -179,18 +197,35 @@ button {
   color: lime;
   z-index: 4;
   position: absolute;
-  inset: -18px 32px auto auto;
+  inset: -5vw 6vw auto auto;
+}
+textarea{
+  width: 60vw;
+  height: 10vw;
+  font-size: 2vw;
+}
+placeholder {
+  width: 20vw;
+  height: 7vw;
 }
 #noteApp {
+  font-size: min(4vw);
   position: relative;
   background-color: #2a2a2a;
-  height: 90%;
-  width: 95%;
+  height: 90vw;
+  width: 95vw;
   margin: 7px;
   padding: 7px;
   overflow-wrap: anywhere;
   word-break: normal;
   overflow-y: auto;
+}
+#noteApp button {
+  font-size: min(5vw);
+}
+#addNoteButton {
+  width: 5vw; 
+  height:5vw;
 }
 .note {
   position: relative;
@@ -198,7 +233,7 @@ button {
   position: relative;
   inset: auto auto auto 0;
   width: 90%;
-  height: 63px;
+  height: 9vw;
   display: flex;
   flex-wrap: wrap;
   background-color: black;
@@ -207,31 +242,28 @@ button {
   padding: 6px;
   justify-content: top-left;
   overflow-y: auto;
-  word-wrap: break-word;
   white-space: normal;
 }
 .noteText {
   position: absolute;
-  top: -13px;
+  top: -2vw;
 }
 .tachado {
   text-decoration: line-through;
 }
 .doneButton {
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 5vw;
+  height: 5vw;
   background-color: grey;
-  inset: 27px 10px auto auto;
+  inset: 5vw 2vw auto auto;
 }
 .doneTask {
   
 }
 #deleteNotesButton {
   width: auto;
-  height: 20px;
-  top: 0px;
-  left: 0px;
+  height: 5vw;
 }
 #songPlayer {
   position: relative;
@@ -248,15 +280,21 @@ button {
   background-color:#2a2a2a00
   display: flex;
   justify-content: center;
+  font-size:5vw;
+}
+#songControls button {
+  font-size: 4vw;
 }
 #songName {
   position: relative;
-  inset: 15px auto auto 15px;
-  font-size: 40;
+  inset: 4vw auto auto 4vw;
+  font-size: 10vw;
 }
 .songButtons {
-  margin: 2px;
-  border-radius: 10px;
+  margin: 1vw;
+  height:5vw;
+  width: 20vw;
+  border-radius: 2vw;
 }
 #songPlayerHeader {
   background-color: grey;
@@ -264,11 +302,11 @@ button {
 }
 .songSection {
   position: relative;
-  left: 10px;
+  left: 2vw;
   color: white;
-  height: 50px;
+  height: 9vw;
   width: 90%;
-  border-radius: 20px;
+  border-radius: 4vw;
   background-color: #0f0f0f;
   transition: transform 0.2s ease;
 }
@@ -277,42 +315,46 @@ button {
 }
 .songSectionTitle {
   position: relative;
-  inset: 7px auto auto 12px;
+  font-size:4vw;
+  inset: 1.1vw auto auto 2vw;
 }
 #progressBar {
   accent-color:#b50076;
   width: 95%;
-  left: 10px;
+  height: 3vw;
+  left: 2vw;
 }
 #songTimer {
   position: absolute;
-  inset: auto 10px -18px auto
+  inset: auto 2vw -3vw auto
+}
+#statsApp{
+  font-size: 5vw;
 }
 #frecuencyGraph {
-  position: absolute;
-  inset: 60% 0 0 0;
+  font-size: 5vw;
   display: flex;
   align-items: flex-end;
-  gap: 4px;
-  height: 40%;
-  border: 2px solid black;
+  gap: 1vw;
+  width: 90vw;
+  height: 40vw;
+  border: 0.5vw solid black;
   width: auto;
 }
 .label {
   position: relative;
-  inset: 2px auto auto 3px;
-  z-index: 1500;
+  inset: 0.1vw auto auto 0.5vw;
+  z-index: 800;
 }
 #graphContainer {
-  position: absolute;
-  inset: 15% 0 55% auto;
+
   display: flex;
   align-items: flex-end;
-  gap: 4px;
-  height: 40%;
-  border: 2px solid black;
-  width: 40%;
-  margin-top: 30px;
+  gap: 1vw;
+  height: 40vw;
+  border: 0.5vw solid black;
+  width: 90vw;
+  margin-top: 5vw;
 }
 .graphicBar {
   background-color: silver;
@@ -321,16 +363,16 @@ button {
 }
 .barLavel {
   position: absolute;
-  bottom: -20px;
+  bottom: -5vw;
   width: 100%;
   text-align: center;
   color: black;
 }
 .fadein {
-  padding: 0 0 0 10px;
-  inset: auto auto auto 40px;
+  padding: 0 0 0 2vw;
+  inset: auto auto auto 7vw;
   opacity: 0;
-  transform: translateX(-20px);
+  transform: translateX(-6vw);
   animation: fadeIn 0.5s forwards;
   transition: all 0.5s ease;
 }
@@ -344,18 +386,41 @@ button {
   position: relative;
   justify-content: center;
   align-items: center;
-  left: 15px;
+  left: 3vw;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   transition: all 0.6s ease;
 }
 .description.expanded {
-  max-height: 60px;
+  max-height: 10vw;
   opacity: 1;
 }
 #aboutMeApp {
+  font-size: 5vw;
   position: absolute;
-  padding: 5px;
-  border-radius: 10px;
+  padding: 1vw;
+  border-radius: 2vw;
+}
+.view {
+  transition: all 1s ease;
+}
+.hiperview { 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(2);
+  z-index:9999; 
+  transition: all 0.6s ease;
+}
+.review-item.hiperview {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(2);
+  z-index:9999; 
+  
+}
+.hiperview h4 {
+  font-size: 1.5rem;
 }

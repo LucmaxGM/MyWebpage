@@ -31,6 +31,8 @@ nameInput.addEventListener("input",()=>{
   greeting.innerText=`¡Bienvenido, ${nameInput.value}!`;
 });
 authForm.appendChild(nameInput);
+const break1 = document.createElement("br");
+authForm.appendChild(break1);
 const labelPassword=document.createElement("label");
 labelPassword.htmlFor="password";
 labelPassword.innerText="Contraseña:";
@@ -39,6 +41,8 @@ const passwordInput=document.createElement("input");
 passwordInput.id="password";
 passwordInput.type="password";
 authForm.appendChild(passwordInput);
+const break2=document.createElement("br");
+authForm.appendChild(break2);
 const submitBtn=document.createElement("button");
 submitBtn.id="submit";
 submitBtn.innerText="Ingresar";

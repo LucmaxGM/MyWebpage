@@ -7,6 +7,7 @@ import {discardById, userInfoDisplay} from "../func/helpers.js";
 import {openSongPlayer} from "./musicPlayerApp.js";
 import {openAboutMe} from "./aboutMe.js";
 import {glowingNeon} from "../func/visuals.js"
+import {openHomePage} from "./homepage.js";
 class App {
   constructor(name, enter, imgSrc, finished) {
     this.name = name;
@@ -84,5 +85,11 @@ export function createSection (name, enter, imgSrc, finished) {
   }
 }
 export function showSections() {
+  const button = document.createElement("button");
+  button.innerText="Home Page";
+  button.addEventListener("click", ()=>{
+    openHomePage();
+  });
+  document.getElementById("main").appendChild(button);
 sections.forEach(s => {createSection(s.name, s.enter, s.imgSrc, s.finished)});
 }
