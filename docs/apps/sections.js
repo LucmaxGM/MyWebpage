@@ -57,7 +57,11 @@ export function createSection (name, enter, imgSrc, finished) {
   state.classList.add("stateOfSection");
   stateText.classList.add("completedState");
   if (finished === true) {
-    container.addEventListener("click", enter);
+    container.addEventListener("click", ()=>{
+      document.querySelectorAll(".return-home-btn").forEach((el)=>{el.remove();});
+      enter();
+
+    });
     button.addEventListener("click", ()=>{
       console.log("Congrats on clicking the button!")
     });
@@ -65,10 +69,14 @@ export function createSection (name, enter, imgSrc, finished) {
     stateText.innerText = "Completed";
     stateText.style.color="lime";
   } else if (finished === "i") {
-    container.addEventListener("click", enter);
+    container.addEventListener("click",()=>{
+      document.querySelectorAll(".return-home-btn").forEach((el)=>{el.remove();});
+      enter();
+    });
     button.addEventListener("click",  ()=>{
       console.log("Congrats on clicking the button!")
     });
+    
     container.classList.add("sectionInfo");
     stateText.innerText = "More info";
     stateText.style.color= "white";
@@ -85,11 +93,16 @@ export function createSection (name, enter, imgSrc, finished) {
   }
 }
 export function showSections() {
+  
+  if(!document.querySelector(".return-home-btn")){
   const button = document.createElement("button");
-  button.innerText="Home Page";
+  button.classList.add("return-home-btn");
   button.addEventListener("click", ()=>{
+    main.innerHTML="";
     openHomePage();
+    button.remove();
   });
   document.getElementById("main").appendChild(button);
+}
 sections.forEach(s => {createSection(s.name, s.enter, s.imgSrc, s.finished)});
 }

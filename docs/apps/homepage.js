@@ -1,9 +1,10 @@
 
-import {discardById, loadCssFile, renderItems, renderObjects, carrouselMaker, hiperView, audioPlayer, renderAccessBtn} from "../func/helpers.js";
+import {discardById, loadCssFile, renderItems, renderObjects, carrouselMaker, hiperView, audioPlayer, renderAccessBtn, linkAttacher} from "../func/helpers.js";
 import {homePageSections, carrousel} from "../resources/homepagesections.js";
 import {certificados, desplegarCertificados} from "../apps/home.despliegue/homecertificates.js";
 import {reviews, desplegarReviews} from "../apps/home.despliegue/homereviews.js"
-loadCssFile("../apps/home.despliegue/homecertif.css");
+loadCssFile("./apps/home.despliegue/homecertif.css");
+loadCssFile("./styles/back-end.css");
 const main = document.getElementById("main");
 
 export function openHomePage() {
@@ -16,15 +17,17 @@ export function openHomePage() {
   homePageWrapper.appendChild(home);
   home.innerHTML=`
   <header id="home-header">
-  <h1> Web</h1></header>
+  <h1>Lucas Blasco's Web</h1></header>
     <nav id="home-nav">
     <div class="nav-normal">
-  <img src="./images/sololearn.png" class="home-nav-img"><img src="./images/linkedin.png" title="My Linkedin Profile" class="home-nav-img"><img src="./images/showmore.png" title="Show More" class="home-nav-img" id="navBtn">
+  <img src="./images/fiverr.png" class="home-nav-img clickable-link" data-link="https://www.fiverr.com/lucmax_gm">
+  <img src="./images/linkedin.png" title="My Linkedin Profile" class="home-nav-img clickable-link" data-link="https://www.linkedin.com/in/lucas-benjamín-blasco-gústafson-062578276">
+  <img src="./images/showmore.png" title="Show More" class="home-nav-img" id="navBtn">
     </div>
     <div id="nav-extra">
-    <img src="./images/fiverr.png">
-    <img src="./images/duolingo.png">
-    <img src="./images/discord.png">
+    <img src="./images/sololearn.png" class="clickable-link" data-link="https://www.sololearn.com/profile/36382950/?ref=app">
+    <img src="./images/duolingo.png" class="clickable-link" data-link="https://www.duolingo.com/profile/lucmaxgm1?">
+    <img src="./images/discord.png" class="clickable-link">
     </div>
   </nav>
   <div id="home-main">
@@ -64,11 +67,42 @@ export function openHomePage() {
   function updateSlide(){
     tracker.style.transform=`translateX(-${currentSlide*100}%)`;
   }
+  function sneakPeakItem(elementSlided, time){
+  setTimeout(()=>{
+    document.querySelectorAll(elementSlided).forEach((el)=>{
+      el.classList.add("sneakpeakscroll");
+    });
+  },time);
+  setTimeout(()=>{
+    document.querySelectorAll(elementSlided).forEach((el)=>{
+      el.classList.remove("sneakpeakscroll");
+    });
+  }, time+2000);
+  }
+  sneakPeakItem(".slide-text-container", 500);
   let carruselInterval = setInterval(()=>{
     currentSlide=(currentSlide +1)%totalSlides;
+    
     updateSlide();
+    sneakPeakItem(".slide-text-container", 2000);
     console.log("interval");
-  }, 2000);
+  }, 9000);
+
+/* let autoScrollShow = setInterval(()=>{
+  document.querySelectorAll(".slide").forEach((el)=>{el.scrollBy({
+    top: 50,
+    behavior: "smooth"
+  });});
+  setTimeout(()=>{
+    document.querySelectorAll(".slide").forEach((el)=>{
+      el.scrollBy({
+        top: -50,
+        behavior: "smooth"
+      });
+    });
+  },2000);
+},4000);
+*/
   prevSlideBtn.addEventListener("click",()=>{
     if(currentSlide==0){
       currentSlide=totalSlides -1;
@@ -100,4 +134,5 @@ export function openHomePage() {
     
   })});
   renderAccessBtn(carruselInterval);
+  linkAttacher(".clickable-link")
 }

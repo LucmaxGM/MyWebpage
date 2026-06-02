@@ -1,10 +1,17 @@
 import {showSections} from "../apps/sections.js";
+import {backEndDisplay} from "../apps/back-end-display.js";
 //Closing Popup btn
 export function closePopUp (event) {
   event.target.parentElement.classList.add("hide");
   setTimeout(button.parentElement.classList.add("destroy"), 1000);
 };
-
+export function setUpButtons(){
+  document.addEventListener("click",(el)=>{
+    if(el.classList.contains("return-home-btn")){
+      console.log("hola");
+    }
+  });
+}
 //hide and remove
 export function hideAndRemoveByClass (className, parent) {
   const elements = document.querySelectorAll(`.${className}`);
@@ -96,6 +103,11 @@ export function loadCssFile(href){
   document.head.appendChild(link);
 }
 
+const accessFunctions = {
+  showSections: ()=>showSections(),
+  backEndDisplay: ()=>backEndDisplay()
+};
+
 export function renderAccessBtn(interval){
   const main= document.getElementById("main");
   document.querySelectorAll(".acceder-btn").forEach((el)=>{
@@ -123,38 +135,55 @@ export function renderAccessBtn(interval){
       
       setTimeout(()=>{
         main.innerHTML="";
-        clone.remove();
-        showSections();
+        
 
        if(el.dataset.link){
          
          info.innerText="Redirigiendote...";
-     document.body.innerHTML="";
      document.body.style.backgroundColor="black";
      document.body.style.pointerEvents="none";
          window.location.href=`${el.dataset.link}`
         
       } else if (el.dataset.func) {
-        console.log("3500 else if")
+        console.log("3500 else if");
+        accessFunctions[el.dataset.func]?.();
+        
         setTimeout(()=>{
-        main.innerHTML="";
-        clone.remove();
-        switch(el.dataset.func){
+          clone.remove();
+          
+        },300);
+        /*switch(el.dataset.func){
           case "showSections":
             showSections();
             break;
           default:
-            console.log("Something went wtomg...");
-        }
-      }, 500);
+            console.log("Something went wtomg...");*/
+          
+        
       } else {
         console.log("Something else went wrong...");
       }
-      }, 2500)
+      }, 1950)
     });
 
   });
 }
+export function linkAttacher(className){
+
+  function eventListenerCallback(){
+    el.removeEventListener("click");
+  }
+  document.querySelectorAll(className).forEach((el)=>{
+    el.addEventListener("click",()=>{
+      if(el.dataset.link){
+      setTimeout(()=>{
+        window.open(el.dataset.link, "_blank");
+      },1000);
+      }
+    });
+  });
+}
+
 export function renderProjectsByLanguage(parent, array){
   array.forEach((value)=>{
     const language = document.createElement("h4");
@@ -181,7 +210,7 @@ export function renderItems(type="div", parent, array, className){
       }
     });
   }};
-  export function renderObjects(type="div", parentId, array, className, textContainerClass="text-container"){
+  export function renderObjects(type="div", parentId, array, className, textContainerClass="slide-text-container"){
     const parentElem=document.getElementById(parentId);
     if (!parentElem){
     console.log("No parent selected");

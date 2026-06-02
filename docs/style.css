@@ -57,6 +57,7 @@ button {
   transition: all 0.5s ease;
 }
 #userInfo {
+  overflow: scroll-y
   font-size:min(4vw);
   z-index: 999;
   justify-content: center;
@@ -73,6 +74,7 @@ button {
  width: 90vw;
  height: 40vw;
  opacity: 0,5;
+ 
 }
 #userInfo button {
   width: 5vw;
@@ -84,10 +86,10 @@ button {
   border-radius: 1vw;
   position: absolute;
   inset: 2vw 2vw auto auto;
-  width: 8vw;
-  height: 8vw;
-  z-index: 998;
-  background: url("images/homebtn.png") center/cover no-repeat;
+  width: 9vw;
+  height: 9vw;
+  z-index: 18;
+  background: url("images/return-btn.png") center/cover no-repeat;
 }
 .minimizarBtn {
 
@@ -133,6 +135,10 @@ button {
 }
 .destroy {
   display: none;
+}
+#sections {
+  position:relative;
+  inset: 10vw auto auto auto;
 }
 .sectionContainer {
   margin: 4vw;
@@ -190,7 +196,6 @@ button {
   position: absolute;
   inset: 1vw -6vw auto auto;
   z-index: 3;
-  font-family: helvetica;
   transform: rotate(18deg);
 }
 .completedState {
@@ -409,7 +414,8 @@ placeholder {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%) scale(2);
+  width: 60vw;
+  transform: translate(-50%,-50%);
   z-index:9999; 
   transition: all 0.6s ease;
 }
@@ -417,7 +423,8 @@ placeholder {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%) scale(2);
+  width: 60vw;
+  transform: translate(-50%,-50%)
   z-index:9999; 
   
 }

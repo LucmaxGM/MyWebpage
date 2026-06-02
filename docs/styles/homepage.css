@@ -76,7 +76,7 @@
   flex-direction: column;
 }
 #home-certificates img {
-  max-width:40%;
+  max-width:90%;
 }
 
 #home-reviews {
@@ -85,7 +85,10 @@
   display: flex;
   justify-content:center;
   align-items: center;
-  background-color: black;
+  flex-direction:column;
+}
+#home-reviews img {
+  max-width:80%;
 }
 #home-reviews img:hover {
   background-color: grey;
@@ -125,9 +128,7 @@
     transform: scale(1) rotate(0deg);
   }
 }
-#home-reviews img {
-  max-width: 40%;
-}
+
 #home-footer {
   overflow-x: auto;
   background-color: transparent;
@@ -152,6 +153,12 @@
   box-sizing: border-box;
 }
 .slide {
+  text-shadow: 
+  0.5vw 0.5vw 1px black,
+  0.5vw -0.5vw 1px black,
+  -0.5vw 0.5vw 1px black,
+  -0.5vw -0.5vw 1px black;
+  font-weight:bold;
   min-height:0;
   overflow-y:auto;
   white-space:normal;
@@ -164,12 +171,22 @@
   background-position: center;
   background-repeat:no-repeat;
 }
-.text-container {
-  margin-left:10%;
+
+@keyframes sneakpeakscroll-animation {
+  0% {transform: translateY(0);}
+  50%{transform: translateY(-5vw);}
+  100%{transform: translateY(0);}
+}
+.slide-text-container {
+  margin-left:9vw;
   background-size:cover;
   background-position: center;
   background-repeat:no-repeat;
-  
+  position: relative;
+  width: 80%;
+}
+.slide-text-container.sneakpeakscroll {
+  animation: sneakpeakscroll-animation 2s 1;
 }
 a {
   display:inline;
@@ -203,7 +220,7 @@ a {
   padding-right:10em;
   gap:10em;
   -webkit-user-drag:none;
-  animation: spinning 7s infinite linear;
+  animation: spinning 30s infinite linear;
 }
 .carrousel-group:hover {
   animation-duration:60s;
@@ -231,22 +248,28 @@ a {
 }
 .acceder-btn {
 position: absolute;
-inset: 13.5vw 15vw auto auto;
+inset: 10vw 2vw auto auto;
   width:7vw;
   height:7vw;
   background-image: url("../images/access-btn.png");
   background-size:contain;
   background-repeat: no-repeat;
-  z-index: 10000;
+  z-index: 100;
+  
 }
 .acceder-btn.acceder-btn-clicked {
   z-index:1000;
   position: fixed;
-  animation: acceder-btn-click 3s ease-in-out forwards;
+  animation: acceder-btn-click 2.5s ease-in-out forwards;
   background-image: url("../images/access-btn.png");
   background-size:contain;
   background-repeat: no-repeat;
+  transition: opacity 1s ease;
 }
+/*.acceder-btn.acceder-btn-clicked.acceder-btn-hiding {
+  opacity: 0;
+  
+}*/
 @keyframes acceder-btn-click {
   0% {
     background-color: transparent;
@@ -263,14 +286,53 @@ inset: 13.5vw 15vw auto auto;
     background-color: #FBD882;
     border-radius:100%;
   }
-  80% { transform: rotate(1800deg) scale(50);
+  80% {
+    border-radius: 100%;
+    transform: rotate(1800deg) scale(50);
   background-color: black;
+  opacity:1;
   
   }
-  100{
-    background-color: transparent
-    background-image: transparent;
-    transform: scale(50) rotate(2600);
+  90%{
+    border-radius:100%;
+    transform: scale(10) rotate(2400deg);
+    opacity:0.7;
   }
-  
+  100%{
+    border-radius:100%;
+    opacity:0;
+  }
+}
+.clickable-link:hover {
+  transform: scale(2);
+  transition: all 0.4s ease;
+}
+.link-click {
+  animation: link-click-animation 1s ease;
+}
+@keyframes link-click-animation {
+  0%{
+    transform: scale(1);
+  }
+  20%{
+    transform: scale(1.5);
+  }
+  40%{
+    transform: scale(1.5);
+  }
+  80% {
+    transform: scale(1.5);
+  }
+}
+.return-home-btn {
+  background-color: white;
+  width: 10vw;
+  height: 10vw;
+  position: absolute;
+  inset: 5vw 2vw auto auto;
+  z-index: 20;
+  background: url("../images/homebtn.png") center/cover no-repeat;
+}
+.return-home-btn:hover {
+  background-color: red;
 }
