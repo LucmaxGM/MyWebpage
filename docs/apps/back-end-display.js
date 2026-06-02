@@ -1,7 +1,6 @@
-import {openHomePage} from "./homepage.js";
+import {openHomePage} from "../apps/homepage.js";
 import {userInfoDisplay} from "../func/helpers.js";
 
-class 
 
 
 export function backEndDisplay(){
