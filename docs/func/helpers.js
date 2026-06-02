@@ -210,6 +210,7 @@ export function renderItems(type="div", parent, array, className){
       }
     });
   }};
+  //Rendering Slides in the main-homepage
   export function renderObjects(type="div", parentId, array, className, textContainerClass="slide-text-container"){
     const parentElem=document.getElementById(parentId);
     if (!parentElem){
@@ -235,7 +236,7 @@ export function renderItems(type="div", parent, array, className){
         
       }
       textContainer.appendChild(element);
-      slide.style.backgroundImage=`url("../resources/${el.img}")`;
+      slide.style.backgroundImage=`url("./resources/${el.img}")`;
     });
   }
 }
