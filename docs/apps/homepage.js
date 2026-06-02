@@ -3,9 +3,9 @@ import {discardById, loadCssFile, renderItems, renderObjects, carrouselMaker, hi
 import {homePageSections, carrousel} from "../resources/homepagesections.js";
 import {certificados, desplegarCertificados} from "../apps/home.despliegue/homecertificates.js";
 import {reviews, desplegarReviews} from "../apps/home.despliegue/homereviews.js";
-loadCssFile("../styles/homepage.css");
-loadCssFile("../apps/home.despliegue/homecertif.css");
-loadCssFile("../styles/back-end.css");
+loadCssFile("./styles/homepage.css");
+loadCssFile("./apps/home.despliegue/homecertif.css");
+loadCssFile("./styles/back-end.css");
 const main = document.getElementById("main");
 
 export function openHomePage() {
