@@ -1,6 +1,7 @@
-import {discardById} from "../func/helpers.js";
+import {discardById, hiding} from "../func/helpers.js";
+import {showSections} from "./sections.js";
 ////forMusic
-const canciones = ["Prelude", "Back One Day", "Hiding In The Blue"];
+const canciones = ["Prelude", "paper-slide"];
   let songIndex = 0;
   let reproduciendo= false;
   let audio = new Audio();
@@ -25,8 +26,13 @@ export function openSongPlayer () {
   main.appendChild(songPlayer);
   ////
   const closeBtn = document.createElement("button");
+  closeBtn.classList.add("return-btn");
   songPlayer.appendChild(closeBtn);
-  closeBtn.classList.add("returnHomeBtn");
+  closeBtn.addEventListener("click", (event)=>{
+    hiding(event.target.parentElement);
+    showSections();
+  });
+  
   ////
   const songPlayerHeader = document.createElement("div");
   songPlayerHeader.id="songPlayerHeader";

@@ -9,24 +9,24 @@
   
 }
 .certificate-zone.home-sect-expand {
-  max-height: 500px;
+  max-height: 1000px;
   overflow: scroll;
 }
 .cert-item {
-  width: 80%;
+  width: 80vw;
   display: flex;
   flex: 0 0 2em;
   justify-content: center;
   align-items: center;
 }
 .cert-img-item {
-  width: 20rem;
+  width: 20vw;
   filter: drop-shadow(0 0 5px yellow) drop-shadow(0 0 2px yellow);
 }
 .cert-text-container {
   padding-left: 2em;
   display: flex;
-  font-size: 2em;
+  font-size: 2vw;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
@@ -38,23 +38,26 @@
   transition: all 0.5s ease;
   display: flex;
   align-items: center;
+  /*flex-direction: column;*/
   gap: 10%
   
 }
 #review-zone.home-sect-expand {
-  height: 700px;
-  max-height: 1200px;
+  height: 100vw;
+  max-height: 1000px;
   overflow: scroll;
 }
 .review-item {
   position: relative;
-  flex: 0 0 2em;
   display: flex;
+  flex: 0 1 80vw;
   justify-content: center;
+  min-width: max(22rem, 40vw);
+  max-width: max(30rem, 70vw);
   flex-direction:column;
   background-color: white;
-  min-width: 25rem;
-  min-height: 22rem;
+  aspect-ratio: 1.5/1;
+  overflow-y: scroll;
   border:solid black;
   color: black;
   padding:1.5rem;

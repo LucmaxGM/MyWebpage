@@ -27,13 +27,13 @@ const sections = [
   
   ];
   
-export function createSection (name, enter, imgSrc, finished) {
-  if (document.getElementById("sections") === null) {
+export function createSection (name, enter, imgSrc, finished, parent) {
+  if (document.getElementById(parent) === null) {
     const appSections = document.createElement("div");
-    appSections.id= "sections";
+    appSections.id= parent;
     document.getElementById("main").appendChild(appSections);
   }
-  const appSections = document.getElementById("sections");
+  const appSections = document.getElementById(parent);
   const container = document.createElement("div");
   
   appSections.appendChild(container);
@@ -59,6 +59,7 @@ export function createSection (name, enter, imgSrc, finished) {
   if (finished === true) {
     container.addEventListener("click", ()=>{
       document.querySelectorAll(".return-home-btn").forEach((el)=>{el.remove();});
+      document.getElementById(parent).remove();
       enter();
 
     });
@@ -104,5 +105,5 @@ export function showSections() {
   });
   document.getElementById("main").appendChild(button);
 }
-sections.forEach(s => {createSection(s.name, s.enter, s.imgSrc, s.finished)});
+sections.forEach(s => {createSection(s.name, s.enter, s.imgSrc, s.finished, "sections")});
 }

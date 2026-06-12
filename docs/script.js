@@ -1,6 +1,6 @@
 
 import {userInfoHide, closePopUp, hideAndRemoveByClass, displayName, userInfoDisplay, hiding, discardById, highlightElement} from "./func/helpers.js";
-
+import {backEndDisplay} from "./apps/back-end-display.js";
 import {glowingNeon} from "./func/visuals.js";
 
 ///////////////////
@@ -36,15 +36,9 @@ openHomePage();
 document.querySelectorAll(".closeButton").forEach(closeBut =>
   closeBut.addEventListener("click", closePopUp)
 );
-document.addEventListener("click", (event) => {
-  if (event.target.classList.contains("returnHomeBtn")) {
-    hiding(event.target.parentElement);
-    showSections();
-  }
-});
+
  //Inicio de sesion y eso
 //
-
 
 
 

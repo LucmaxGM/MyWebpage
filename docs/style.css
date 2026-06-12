@@ -8,6 +8,90 @@ body {
   height: 100%;
   width: 100%;
 }
+.refresh-btn {
+  background-color: red;
+  border-radius: 1vw;
+  width: 9vw;
+  height: 9vw;
+  z-index: 18;
+  background: url("images/refresh-btn.png") center/cover no-repeat;
+}
+.add-btn {
+  background-color: red;
+  border-radius: 1vw;
+  width: 9vw;
+  height: 9vw;
+  z-index: 18;
+  background: url("images/add-btn.png") center/cover no-repeat;
+}
+.delete-btn {
+  border-radius: 1vw;
+  width: 5vw;
+  height: 5vw;
+  z-index: 18;
+  background: red url("images/delete-btn.png") center/cover no-repeat;
+  position: absolute;
+  inset: 1.5vw 1.5vw auto auto
+}
+#confirmation-component {
+  border: solid 0.5vw black;
+  font-size: 3.8vw;
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+  width: 65vw;
+  height: 27vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  background-color: black;
+  grid-gap: 5px;
+  grid-template-areas:
+  "bar bar bar bar bar"
+  "info info info info info"
+  "info info info info info"
+  "info info info info info"
+  "options options options options options"
+}
+#confirmation-component-bar {
+  display: flex;
+  background-color: blue;
+  justify-content: flex-end;
+  grid-area: bar;
+}
+#confirmation-component-close-btn{
+ height: 100%;
+ aspect-ratio: 1/1;
+ border-radius: 1vw;
+ background: red url("images/close-btn.png") center/cover no-repeat;
+}
+#confirmation-component-info {
+  margin: 0 2vw 0 2vw;
+  overflow-y: auto;
+  grid-area: info;
+  word-break: break-word;
+}
+#confirmation-component-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-area: options;
+  
+}
+#confirmation-component-options button {
+  color: white;
+  background-color: grey;
+  margin: 0.5vw;
+}
+#confirmation-component-cancel {
+  font-size: 2.8vw;
+  
+}
+#confirmation-component-proceed {
+  font-size: 2.8vw;
+  
+}
 #signInForm {
   position: absolute;
   width: 80%;
@@ -81,7 +165,7 @@ button {
   height:5vw;
   font-size:4vw;
 }
-.returnHomeBtn {
+.return-btn {
   background-color: red;
   border-radius: 1vw;
   position: absolute;
@@ -101,7 +185,7 @@ button {
   height: 10vw;
   z-index: 998;
 }
-.returnHomeBtn:hover {
+.return-btn:hover {
   background-color: darkred;
 }
 #signInForm.hide {
@@ -208,6 +292,8 @@ textarea{
   width: 60vw;
   height: 10vw;
   font-size: 2vw;
+  background-color: black;
+  color: white;
 }
 placeholder {
   width: 20vw;
@@ -414,20 +500,19 @@ placeholder {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 60vw;
-  transform: translate(-50%,-50%);
-  z-index:9999; 
+  transform: translate(-50%,-50%) scale(3);
+  z-index:101; 
   transition: all 0.6s ease;
 }
 .review-item.hiperview {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 60vw;
-  transform: translate(-50%,-50%)
-  z-index:9999; 
+  max-width: min(80vw);
+  transform: translate(-50%,-50%) scale(1.5);
+  z-index:101; 
   
 }
 .hiperview h4 {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }

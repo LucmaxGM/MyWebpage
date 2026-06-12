@@ -1,4 +1,5 @@
-import {discardById} from "../func/helpers.js";
+import {discardById, hiding} from "../func/helpers.js";
+import {showSections} from "./sections.js";
 const qualities=[{title:"Matemática", desc:"Muy apasionado. Actualmente sigo estudiando y practicando día a día"},{title: "Programación", desc: "Practico y programo todos los días en JavaScript, Python, React, C, HTML, CSS y más por venir."}, {title:"Inglés", desc: "Estudié 10 años el idioma y actualmente puedo hablarlo de forma fluida"}, {title:"Estadistica",desc:"Estoy actualmente estudiando y trabajando habilidades de análisis estadístico"}, {title:"Herramientas",desc:"Actualmente sé manejar Excel, calculadoras, IA, código y estoy aprendiendo a usar Linux y Github, entre otros"}, {title:"Electricidad",desc:"Aprendiendo sobre circuitos y componentes eléctricos"},{title:"Administración", desc:"Formación académica formal en Administración, Economía y Contabilidad como título secundario"},{title:"Video y Media",desc:"Trabajé varios años como editor de video con +10 proyectos completados y evaluación perfecta por cada cliente."}, {title:"Japonés", desc:"Estudiando el idioma desde hace 5 años, manteniendo una buena racha diaria por años."}, {title: "¡Gracias por su tiempo!"}];
 export function openAboutMe () {
   discardById("sections");
@@ -9,7 +10,11 @@ export function openAboutMe () {
   ///////
   const closeBtn = document.createElement("button");
   aboutMeApp.appendChild(closeBtn);
-  closeBtn.classList.add("returnHomeBtn");
+  closeBtn.classList.add("return-btn");
+  closeBtn.addEventListener("click", (event)=>{
+    hiding(event.target.parentElement);
+    showSections();
+  });
   ///////
   const title=document.createElement("h1");
   title.innerText="Sobre Mi";

@@ -67,7 +67,7 @@ export const homePageSections = [
     <ul>
   <li>Express</li>
   <li>Git y GitHub</li>
-  <li>Linux Terminal</li>
+  <li>Termux Terminal</li>
   <li>Node.js</li>
   <li>Python</li>
   <li>SQL</li>
@@ -118,7 +118,7 @@ export const homePageSections = [
   <li>Canal de Youtube propio</li>
   <li>Video con más de 100.000 visitas</li>
   </ul>
-  `),
+  `, "banner-editor-multimedia.jpg"),
   new HomeSect("Formando", `
   <h2>Campeón Nacional</h2>
   <h4>Formando Emprendedores 2023</h4>
@@ -133,7 +133,6 @@ export const homePageSections = [
   `, "formandoemp2023LucasBlasco.jpg"),
   new HomeSect("Estudios",
   `<h3>Estudios:</h3>
-  <ul><li>Estudios Secundarios ✓</li>
   <ol><li>Bach. Econ. Adminis. y Contabilidad</li></ol>
   <li>Cursos de programación: ✓</li>
   <ol><a href="https://www.sololearn.com/profile/36382950/?ref=app"><li>SoloLearn</li></a>
@@ -166,7 +165,7 @@ export const homePageSections = [
     new imgCarr("React", "react.png"),
     new imgCarr("Excel", "excel.png"),
     new imgCarr("Github", "github.png"),
-    new imgCarr("Linux Terminal", "linux.png"),
+    new imgCarr("Termux Terminal", "linux.png"),
     new imgCarr("VS Code","vs-code.png")
     ];
 

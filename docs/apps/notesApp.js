@@ -1,5 +1,6 @@
-import {discardById} from "../func/helpers.js";
+import {discardById, hiding} from "../func/helpers.js";
 import {hideAndRemoveByClass} from  "../func/helpers.js";
+import {showSections} from "./sections.js";
 //abrirNoteapp
 export function openNotesApp () {
   console.log("appnoteopened");
@@ -10,7 +11,11 @@ export function openNotesApp () {
   /////
   const closeBtn = document.createElement("button");
   noteApp.appendChild(closeBtn);
-  closeBtn.classList.add("returnHomeBtn");
+  closeBtn.classList.add("return-btn");
+  closeBtn.addEventListener("click", (event)=>{
+    hiding(event.target.parentElement);
+    showSections();
+  });
   /////
   const noteInput = document.createElement("textarea");
   noteInput.id = "noteInput";

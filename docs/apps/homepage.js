@@ -1,13 +1,13 @@
 
-import {discardById, loadCssFile, renderItems, renderObjects, carrouselMaker, hiperView, audioPlayer, renderAccessBtn, linkAttacher} from "../func/helpers.js";
+import {discardById, loadCssFile, renderItems, renderObjects, carrouselMaker, hiperView, audioPlayer, renderAccessBtn, linkAttacher, confirmationComponent} from "../func/helpers.js";
 import {homePageSections, carrousel} from "../resources/homepagesections.js";
+import {backEndDisplay} from "./back-end-display.js";
 import {certificados, desplegarCertificados} from "../apps/home.despliegue/homecertificates.js";
 import {reviews, desplegarReviews} from "../apps/home.despliegue/homereviews.js";
 loadCssFile("./styles/homepage.css");
 loadCssFile("./apps/home.despliegue/homecertif.css");
 loadCssFile("./styles/back-end.css");
 const main = document.getElementById("main");
-
 export function openHomePage() {
   discardById("sections");
   const homePageWrapper=document.createElement("div");

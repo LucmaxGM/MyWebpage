@@ -1,4 +1,5 @@
-import {discardById} from "../func/helpers.js";
+import {discardById, hiding} from "../func/helpers.js";
+import {showSections} from "./sections.js";
 export function openStatisticApp () {
   discardById("sections");
   const statsApp = document.createElement("div");
@@ -7,7 +8,11 @@ export function openStatisticApp () {
   /////
   const closeBtn = document.createElement("button");
   statsApp.appendChild(closeBtn);
-  closeBtn.classList.add("returnHomeBtn");
+  closeBtn.classList.add("return-btn");
+  closeBtn.addEventListener("click", (event)=>{
+    hiding(event.target.parentElement);
+    showSections();
+  });
   /////
   const textArea = document.createElement("textarea");
   textArea.addEventListener("input", () => {calcularStats(textArea.value)});

@@ -3,7 +3,7 @@ import {backEndDisplay} from "../apps/back-end-display.js";
 //Closing Popup btn
 export function closePopUp (event) {
   event.target.parentElement.classList.add("hide");
-  setTimeout(button.parentElement.classList.add("destroy"), 1000);
+  setTimeout(event.target.parentElement.classList.add("destroy"), 1000);
 };
 export function setUpButtons(){
   document.addEventListener("click",(el)=>{
@@ -19,7 +19,7 @@ export function hideAndRemoveByClass (className, parent) {
     el.classList.add("hide");
     el.addEventListener("transitionend", () => el.remove());
   });
-}
+} 
 export function userInfoHide (infoDiv) {
   infoDiv.classList.add("hide");
   setTimeout(()=>{infoDiv.remove();}, 1000);
@@ -36,12 +36,56 @@ export function showInfoToUser(information){
   const div=document.createElement("div");
   
 }
+export function confirmationComponent(message, func, actionName="Proceder"){
+  const popUp = document.createElement("div");
+  popUp.id="confirmation-component";
+  document.getElementById("main").appendChild(popUp);
+  const bar = document.createElement("div");
+  bar.id="confirmation-component-bar";
+  popUp.appendChild(bar);
+  const closeBtn = document.createElement("button");
+  closeBtn.id="confirmation-component-close-btn";
+  closeBtn.addEventListener("click", ()=>{
+    hiding(popUp);
+  });
+  bar.appendChild(closeBtn);
+  
+  const infoArea=document.createElement("div");
+  infoArea.id="confirmation-component-info";
+  popUp.appendChild(infoArea);
+  const infoDisplayed = document.createElement("h3");
+  infoDisplayed.innerText=message;
+  infoArea.appendChild(infoDisplayed);
+  const optionsArea=document.createElement("div");
+  optionsArea.id="confirmation-component-options";
+  popUp.appendChild(optionsArea);
+  const cancelBtn = document.createElement("button");
+  cancelBtn.innerText="Cancelar";
+  cancelBtn.id="confirmation-component-cancel";
+  cancelBtn.addEventListener("click", ()=>{
+    hiding(popUp);
+  });
+  optionsArea.appendChild(cancelBtn);
+  if(func){
+    const procederBtn=document.createElement("button");
+    procederBtn.innerText=actionName;
+    procederBtn.id="confirmation-component-proceed";
+    optionsArea.appendChild(procederBtn);
+    procederBtn.addEventListener("click", ()=>{
+    hiding(popUp);
+    func();
+    });
+  }
+  
+  
+  
+}
 export function displayName(userGreetings, userInp=document.getElementById("username")) {
   userGreetings.innerHTML = `¡Bienvenido, ${userInp.value}!`;
 };
 export function hiding (element) {
   element.classList.add("hide");
-  element.addEventListener("transitionend", () => element.remove())
+  element.addEventListener("transitionend", () => element.remove(), {once: true})
 } 
 export function discardById(id) {
   if (!(document.getElementById(id)==null)){
@@ -142,7 +186,7 @@ export function renderAccessBtn(interval){
          info.innerText="Redirigiendote...";
      document.body.style.backgroundColor="black";
      document.body.style.pointerEvents="none";
-         window.location.href=`${el.dataset.link}`
+         window.location.href=`${el.dataset.link}`;
         
       } else if (el.dataset.func) {
         console.log("3500 else if");

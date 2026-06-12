@@ -2,7 +2,8 @@ const main = document.getElementById("main");
 const pss = "2026";
 const uss = "Lucas";
 import {signIn, signInForReal} from "../func/userAuth.js";
-import {discardById} from "../func/helpers.js";
+import {discardById, hiding} from "../func/helpers.js";
+import {showSections} from "./sections.js";
 export function openAuthDemo(){
   discardById("sections");
 const authForm = document.createElement("div");
@@ -14,8 +15,11 @@ const closeBtn=document.createElement("button");
 closeBtn.type="button";
 
 authForm.appendChild(closeBtn);
-closeBtn.classList.add("returnHomeBtn");
-
+closeBtn.classList.add("return-btn");
+closeBtn.addEventListener("click", (event)=>{
+  hiding(event.target.parentElement);
+  showSections();
+});
 
 ////
 const greeting = document.createElement("h3");
