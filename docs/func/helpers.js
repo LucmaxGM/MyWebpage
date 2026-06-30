@@ -1,6 +1,16 @@
 import {showSections} from "../apps/sections.js";
 import {backEndDisplay} from "../apps/back-end-display.js";
-//Closing Popup btn
+
+//socket emulator/real one
+export const socket = 
+  typeof io !== "undefined" ? io({
+  autoConnect:false
+}) : {
+    emit: (...args)=>{console.log("Sócket emit:", ...args);},
+    off: (...args)=>{console.log("socket off", ...args);},
+on: (...args)=>{console.log("Socket on", ...args);}
+
+  }
 export function closePopUp (event) {
   event.target.parentElement.classList.add("hide");
   setTimeout(event.target.parentElement.classList.add("destroy"), 1000);

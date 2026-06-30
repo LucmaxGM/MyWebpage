@@ -1,0 +1,30 @@
+
+
+.private-conversation {
+  border: solid 2vw white;
+  width: 100vw;
+  height: 150vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+  "header header header header"
+    "chat-body chat-body chat-body chat-body"
+    "chat-body chat-body chat-body chat-body"
+    "chat-body chat-body chat-body chat-body"
+    "chat-body chat-body chat-body chat-body"
+    "chat-body chat-body chat-body chat-body"
+    "ctrls ctrls ctrls ctrls";
+}
+.chat-header {
+  grid-area: header;
+  background-color: blue;
+}
+.chat-body {
+  grid-area: chat-body;
+  background-color: #1f1f1f;
+}
+.chat-ctrls {
+  grid-area: ctrls;
+  background-color: brown;
+}

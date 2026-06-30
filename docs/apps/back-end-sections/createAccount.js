@@ -13,6 +13,7 @@ export function createAccount(){
   signInPage.appendChild(h3);
   const h4 = document.createElement("h4");
   signInPage.appendChild(h4);
+  h4.innerText="Test";
   const returnBtn = document.createElement("button");
   returnBtn.classList.add("return-btn");
   signInPage.appendChild(returnBtn);
@@ -51,9 +52,11 @@ signInPage.appendChild(submitBtn);
 submitBtn.type="button";
 submitBtn.addEventListener("click", ()=>{
   if(nameInput.value=="" || passwordInput.value==""){
+    h4.innerText="Nombre y contraseña son requeridos.";
     return;
   }
-  if(nameInput.value.length<5){
+  if(nameInput.value.length<5 || passwordInput.value.length<5){
+    h4.innerText="Name and password must have at least 5 characters.";
     return;
   }
   fetch("back-end/userauth/signIn", {
@@ -63,13 +66,14 @@ submitBtn.addEventListener("click", ()=>{
       username: nameInput.value,
       password: passwordInput.value
     })
-  }).then((response)=>{
+  }).then( async (response)=>{
     if(!response.ok){
-      h4.innerText=`${response.status}: ${response.message}`;
+      const data = await response.json();
+      h4.innerText=`${response.status}: ${data.message}`;
       console.log("error");
     }
   }).catch((err)=>{
-    h4.innerText="error";
+    h4.innerText="Error connecting to the database";
     console.error(err);
   });
 });

@@ -87,7 +87,7 @@ export function openPublicComments(){
             };
           });
       }).catch((err)=>{
-        infoElement.innerText="Error";
+        infoElement.innerText="Error conectandose al servidor";
       });
   });
   function deleteComment(commentId){

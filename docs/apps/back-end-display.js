@@ -1,8 +1,9 @@
 import {openHomePage} from "../apps/homepage.js";
-import {userInfoDisplay, confirmationComponent} from "../func/helpers.js";
+import {socket, userInfoDisplay, confirmationComponent} from "../func/helpers.js";
 import {createAccount} from "./back-end-sections/createAccount.js";
 import {openLogIn} from "./back-end-sections/openLogIn.js";
 import {openPublicComments} from "./back-end-sections/publicComments.js";
+import {openPrivateChats} from "./back-end-sections/private-chats.js";
 import {createSection} from "./sections.js";
 class AppBackEnd {
   constructor(name, enter, imgSrc, finished) {
@@ -15,22 +16,38 @@ class AppBackEnd {
 const backEndApps = [
   new AppBackEnd("Sign in", createAccount, "img.jgp", true),
   new AppBackEnd("Log In", openLogIn, "img.jpg", true),
-  new AppBackEnd("Comments", openPublicComments, "img2.jpg", true)
+  new AppBackEnd("Comments", openPublicComments, "img2.jpg", true),
+  new AppBackEnd("Message System", openPrivateChats, "img3.jgp", true)
   ];
 export async function backEndDisplay(){
   const main = document.getElementById("main");
   main.innerHTML="";
+  console.log(`${socket.connected}`);
+
   try {
-  const response = await fetch("/back-end/connection");
+  const connectionResponse = await fetch("/test/connection");
     
-    if(!response.ok){
+    if(!connectionResponse.ok){
       throw new Error("Back end unavailable");
     } 
-    const data = await response.json();
+    //const data = await response.json();
+    try {
+    const logInResponse = await fetch("/test/signedInUser");
+      if(logInResponse.ok && !socket.connected) {
+        socket.connect();
+        userInfoDisplay(`socket`);
+      } else {
+      userInfoDisplay("Couldn't connect to the socket or something");
+    }
+    } catch (err){
+      console.error("Couldnt check log in status", err);
+      userInfoDisplay("Unable to check");
+    }
+    
     } catch (err) {
       console.error(err);
-      confirmationComponent(`Si usted se encuentra en la web hosteada por Github ("https://lucmaxgm.github.io/MyWebpage/"): esta sección no funcionará debido a que Github no hostea back-end. Contacteme a través del medio que desee para que hostee este sitio y pueda probar todas las funcionalidades que he desarrollado.`, ()=>{
-    window.location.href=`https://www.linkedin.com/in/lucas-benjamín-blasco-gústafson-062578276`;
+      confirmationComponent(`No se pudo acceder al servidor. Si usted se encuentra en la web hosteada por Github ("https://lucmaxgm.github.io/MyWebpage/"): esta sección no funcionará debido a que Github no hostea back-end. Contacteme a través del medio que desee para que hostee este sitio y pueda probar todas las funcionalidades que he desarrollado.`, ()=>{
+    window.location.href=`https://www.linkedin.com/in/lucas-blasco-g`;
   }, "Contacto Linkedin");
     };
   

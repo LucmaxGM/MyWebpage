@@ -33,6 +33,14 @@ body {
   position: absolute;
   inset: 1.5vw 1.5vw auto auto
 }
+.send-btn {
+  background-color: red;
+  border-radius: 1vw;
+  width: 9vw;
+  height: 9vw;
+  z-index: 18;
+  
+}
 #confirmation-component {
   border: solid 0.5vw black;
   font-size: 3.8vw;

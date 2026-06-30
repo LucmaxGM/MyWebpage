@@ -1,4 +1,6 @@
-import {hiding} from "../../func/helpers.js";
+
+
+import {hiding, socket} from "../../func/helpers.js";
 import {backEndDisplay} from "../back-end-display.js";
 export function openLogIn(){
   
@@ -73,6 +75,9 @@ submitBtn.addEventListener("click", ()=>{
       console.log("error");
       return;
     };
+    //Success!
+    socket = io();
+    console.log(`Connected with socket: ${socket.id}`);
     h4.innerText=`Success: ${data.message}`;
   }).catch((err)=>{
     h4.innerText="Error while connecting to the server";
